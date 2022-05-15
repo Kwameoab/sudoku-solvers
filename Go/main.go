@@ -88,14 +88,10 @@ func (this Board) useableNum(num int, i int, j int) bool {
 func (this *Board) solve() bool {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
-			// fmt.Println("Here", this.board[i][j])
 			if this.board[i][j] == 0 {
-
 				for try := 1; try < 10; try++ {
-					// fmt.Println("try", try)
 					if this.useableNum(try, i, j) {
 						this.board[i][j] = try
-						// this.print()
 						if this.solve() {
 							return true
 						}
